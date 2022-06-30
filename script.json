@@ -1,0 +1,37 @@
+{
+    "task": "build project",
+    "tools": ["git", "npm", "composer"],
+    "step": [
+        {
+            "taskName": "git clone",
+            "toolIndex": 0,
+            "script": "git clone git@github.com:******.git" 
+        },
+        {
+            "taskName": "cd",
+            "directory": "******"
+        },
+        {
+            "taskName": "composer install vender",
+            "toolIndex": 2,
+            "script": "composer install " 
+        },
+        {
+            "taskName": "npm install package",
+            "toolIndex": 1,
+            "script": "npm install " 
+        },
+        {
+            "taskName": "npm build project",
+            "toolIndex": 1,
+            "script": "npm run production " 
+        },
+        {
+            "taskName": "npm build project",
+            "toolIndex": 1,
+            "script": "npm run production " 
+        }
+
+
+    ]
+}
