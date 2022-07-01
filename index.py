@@ -1,6 +1,5 @@
 from bash import *
 from Task import Task
-from npm import Npm
 import sys
 import json
 
@@ -21,9 +20,13 @@ if __name__ == '__main__':
     for step in script['step']:
         if step['taskName'] == "cd":
             cd(step['directory'])
+        elif step['taskName'] == "rm":
+            rm(step['file'])
         else:
+            taskname = step ['taskName']
+            print(f'Running: {taskname}', end='\r')
             tool = tools[step['toolIndex']]
             if not tool.run(step['script'].split()[1:]):
                 errorLog(tool, base_directory)
-            taskname = step ['taskName']
+            print('                                                ', end='\r')
             print(' \u2705 ' + taskname)
